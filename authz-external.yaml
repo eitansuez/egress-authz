@@ -1,0 +1,19 @@
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allowed-github-api-clients
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      istio: egressgateway
+  action: CUSTOM
+  provider:
+    name: sample-ext-authz-http
+  rules:
+  - to:
+    - operation:
+        hosts:
+        - api.github.com
+

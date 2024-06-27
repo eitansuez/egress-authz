@@ -1,0 +1,11 @@
+---
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: egress-gw
+spec:
+  profile: empty
+  components:
+    egressGateways:
+    - name: istio-egressgateway
+      enabled: true
